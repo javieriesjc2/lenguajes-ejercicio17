@@ -7,7 +7,9 @@ request.send();
 if (request.status === 200) {
 var xmlDoc = request.responseXML;
 
-var libros = xmlDoc.getElementsByTagName("libro"); //
+var buscador = document.getElementById("buscador");
+
+var libros = xmlDoc.getElementsByTagName("libro"); 
 
 var tableBody = document.getElementById("libr");
 
@@ -15,6 +17,7 @@ tableBody.innerHTML = "";
 
 for (var i = 0; i < libros.length; i++) {
 var libro = libros[i];
+
 
 var row = tableBody.insertRow();
 
