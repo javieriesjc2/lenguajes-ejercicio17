@@ -28,6 +28,8 @@ table.container tr td {
     padding: 5px;
     padding-left: 10px;
     padding-right: 10px;
+
+    width: 100px;
 }
 
 

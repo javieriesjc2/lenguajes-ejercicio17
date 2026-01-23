@@ -23,6 +23,16 @@ function getXmlData(fn, func)
     }
 }
 
+function clearData()
+{
+    let tab = document.querySelector("table.container");
+
+    for(let i = 0; i < tab.children.length - 1; i++)
+    {
+        tab.removeChild(tab.children[1]);
+    }
+}
+
 function getData()
 {
     getXmlData("libros.xml", async (_xDoc) =>
@@ -33,6 +43,9 @@ function getData()
         var xDoc = _xDoc;
         const libros = xDoc.getElementsByTagName("libros")[0].children;
 
+        var filterYear = parseInt(document.querySelector("#filter").value);
+
+        clearData();
         let tab = document.querySelector("table.container");
 
         for(let i = 0; i < libros.length; i++)
@@ -42,6 +55,11 @@ function getData()
             const autor = libro.children[AUTOR_INDEX].textContent;
             const year = libro.children[YEAR_INDEX].textContent;
             const price = libro.children[PRICE_INDEX].textContent;
+
+            if(!isNaN(filterYear) && filterYear !== parseInt(year))
+            {
+                continue;
+            }
 
             var entry = document.createElement("tr");
 
@@ -63,7 +81,7 @@ function getData()
 
             tab.appendChild(entry);
 
-            await delay(200 * i);
+            // await delay(200 * i);
         }
 
     });
