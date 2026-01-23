@@ -7,31 +7,30 @@ request.send();
 if (request.status === 200) {
 var xmlDoc = request.responseXML;
 
-var libro = xmlDoc.getElementsByTagName("libro"); //
-Array
+var libros = xmlDoc.getElementsByTagName("libro"); //
 
 var tableBody = document.getElementById("libr");
-// Se vacía el contenido de la tabla
+
 tableBody.innerHTML = "";
 
 for (var i = 0; i < libros.length; i++) {
 var libro = libros[i];
-// Se crea una nueva fila en el HTML
+
 var row = tableBody.insertRow();
-// Se insertan celdas en la fila (HTML)
+
 var cell1 = row.insertCell(0);
 var cell2 = row.insertCell(1);
 var cell3 = row.insertCell(2);
 var cell4 = row.insertCell();
-// Se cambia el contenido de cada celda con los datos del producto
+
 cell1.textContent =
-producto.getElementsByTagName("titulo")[0].textContent;
+libro.getElementsByTagName("titulo")[0].textContent;
 cell2.textContent =
-producto.getElementsByTagName("autor")[0].textContent;
+libro.getElementsByTagName("autor")[0].textContent;
 cell3.textContent =
-producto.getElementsByTagName("anio")[0].textContent;
+libro.getElementsByTagName("anio")[0].textContent;
 cell4.textContent =
-producto.getElementsByTagName("precio")[0].textContent;
+libro.getElementsByTagName("precio")[0].textContent;
 }
 }
 }
