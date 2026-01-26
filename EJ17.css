@@ -59,3 +59,9 @@ p {
 input {
     width: 60px;
 }
+
+p {
+    color: grey;
+    font-weight: bold;
+    margin-top: 70px;
+}
