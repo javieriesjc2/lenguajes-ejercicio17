@@ -26,13 +26,9 @@ function getXmlData(fn, func)
 function clearData()
 {
     let tab = document.querySelector("table.container");
-
     while(tab.children.length > 1)
     {
-        if(!tab.lastChild.classList.contains("immutable"))
-        {
-            tab.removeChild(tab.lastChild);
-        }
+        tab.removeChild(tab.children[1]);
     }
 }
 
@@ -47,10 +43,9 @@ function getData()
         const libros = xDoc.getElementsByTagName("libros")[0].children;
 
         var filterYear = document.querySelector("#filter").value;
-        const isFilterEmpty = filterYear === "";
 
-        clearData();
         let tab = document.querySelector("table.container");
+        clearData();
 
         for(let i = 0; i < libros.length; i++)
         {
@@ -60,9 +55,7 @@ function getData()
             const year = libro.children[YEAR_INDEX].textContent;
             const price = libro.children[PRICE_INDEX].textContent;
 
-            if(!isFilterEmpty &&
-                year !== filterYear
-            )
+            if(filterYear !== "" && filterYear !== year)
             {
                 continue;
             }
