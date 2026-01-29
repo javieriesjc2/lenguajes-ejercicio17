@@ -1,0 +1,43 @@
+body {
+    margin: 0%;
+    background-color: #f5f4f9;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    color: white;
+}
+
+.header {
+    height: 10%;
+    display: flex;
+    align-items: center;
+    background-color: #333333;
+}
+
+.table {
+    width: 800px;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+th {
+    height: 50px;
+    background-color: #262626;
+    color: white;
+}
+
+tr {
+    height: 50px;
+    background-color: white;
+}
+
+.tableBody {
+    background-color: white;
+}
+
+.input {
+    height: 40px;
+    width: 400px;
+    font-size: larger;
+}
